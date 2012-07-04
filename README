@@ -1,0 +1,14 @@
+Programa para descargar *todas* las imagenes de las actas escaneadas en el PREP del IFE.
+
+El programa usa Web Scraping (http://en.wikipedia.org/wiki/Web_scraping ) para obtener las URLs de las imágenes.
+
+Requerimientos:
+Java 1.5+
+Apache Commons Lang 3 (http://commons.apache.org/lang/ )
+Wget, ya sea para Linux o para Windows (http://gnuwin32.sourceforge.net/packages/wget.htm )
+
+Setup:
+Modificar las constantes:
+'STOPCRAWLERFILENAME' archivo en el sistema de archivos local que se buscará un archivo para detener el proceso.
+'WGETPATH' el path al ejecutable de Wget
+'PREPURL' URL del Servlet 'DetalleCasillas' del PREP (Hay varios espejos del PREP)
