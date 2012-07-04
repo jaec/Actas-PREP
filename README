@@ -5,13 +5,18 @@ El programa usa Web Scraping (http://en.wikipedia.org/wiki/Web_scraping ) para o
 Requerimientos:
 Java 1.6+
 Apache Commons Lang 3 (http://commons.apache.org/lang/ )
-Wget, ya sea para Linux o para Windows (http://gnuwin32.sourceforge.net/packages/wget.htm )
+Wget, ya sea para Linux, Mac o para Windows (http://gnuwin32.sourceforge.net/packages/wget.htm )
 
 Setup:
-Modificar las constantes:
-'STOPCRAWLERFILENAME' archivo en el sistema de archivos local que se buscará un archivo para detener el proceso.
-'WGETPATH' el path al ejecutable de Wget
-'PREPURL' URL del Servlet 'DetalleCasillas' del PREP (Hay varios espejos del PREP)
+Modificar las constantes en ObtenerActasPREP.java:
+'STOPCRAWLERFILENAME' archivo en el sistema de archivos local que se buscará un archivo para detener el proceso (Por default: /tmp/stopactas )
+'WGETPATH' el path al ejecutable de Wget (Por default: /usr/local/bin/wget)
+Opcionalmente 'PREPURL' URL del Servlet 'DetalleCasillas' del PREP (Hay varios espejos del PREP, por default: http://prep2012.ife.org.mx/prep/DetalleCasillas )
 
 Ejemplo de uso desde la consola:
 java -Xmx2048m -jar "/Users/xxx/NetBeansProjects/ObtenerActasPREP/dist/ObtenerActasPREP.jar" > /Users/xxx/urls.txt
+
+Para detener la ejecución:
+touch /tmp/stopactas
+
+Si se detiene la ejecución de esta manera, podemos continuar la descarga donde nos hayamos quedado en otro momento.
