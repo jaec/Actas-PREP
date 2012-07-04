@@ -18,3 +18,5 @@ java -Xmx2048m -jar "/Users/xxx/NetBeansProjects/ObtenerActasPREP/dist/ObtenerAc
 
 Para detener la ejecución:
 touch /tmp/stopactas
+
+Si se detiene la ejecución de esta manera, podemos continuar la descarga donde nos hayamos quedado en otro momento.
