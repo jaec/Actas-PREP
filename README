@@ -8,10 +8,10 @@ Apache Commons Lang 3 (http://commons.apache.org/lang/ )
 Wget, ya sea para Linux, Mac o para Windows (http://gnuwin32.sourceforge.net/packages/wget.htm )
 
 Setup:
-Modificar las constantes en ObtenerActasPREP.java:
-'STOPCRAWLERFILENAME' archivo en el sistema de archivos local que se buscará un archivo para detener el proceso (Por default: /tmp/stopactas )
-'WGETPATH' el path al ejecutable de Wget (Por default: /usr/local/bin/wget )
-Opcionalmente 'PREPURL' URL del Servlet 'DetalleCasillas' del PREP (Hay varios espejos del PREP, por default: http://prep2012.ife.org.mx/prep/DetalleCasillas )
+Modificar las constantes en ObtenerActasPREP.java
+'STOPCRAWLERFILENAME': archivo en el sistema de archivos local que se buscará un archivo para detener el proceso (Por default: /tmp/stopactas )
+'WGETPATH': el path al ejecutable de Wget (Por default: /usr/local/bin/wget )
+Opcionalmente 'PREPURL': URL del Servlet 'DetalleCasillas' del PREP (Hay varios espejos del PREP, por default: http://prep2012.ife.org.mx/prep/DetalleCasillas )
 
 Ejemplo de uso desde la consola:
 java -Xmx2048m -jar "/Users/xxx/NetBeansProjects/ObtenerActasPREP/dist/ObtenerActasPREP.jar" > /Users/xxx/urls.txt
