@@ -10,7 +10,7 @@ Wget, ya sea para Linux, Mac o para Windows (http://gnuwin32.sourceforge.net/pac
 Setup:
 Modificar las constantes en ObtenerActasPREP.java:
 'STOPCRAWLERFILENAME' archivo en el sistema de archivos local que se buscará un archivo para detener el proceso (Por default: /tmp/stopactas )
-'WGETPATH' el path al ejecutable de Wget (Por default: /usr/local/bin/wget)
+'WGETPATH' el path al ejecutable de Wget (Por default: /usr/local/bin/wget )
 Opcionalmente 'PREPURL' URL del Servlet 'DetalleCasillas' del PREP (Hay varios espejos del PREP, por default: http://prep2012.ife.org.mx/prep/DetalleCasillas )
 
 Ejemplo de uso desde la consola:
@@ -19,4 +19,4 @@ java -Xmx2048m -jar "/Users/xxx/NetBeansProjects/ObtenerActasPREP/dist/ObtenerAc
 Para detener la ejecución:
 touch /tmp/stopactas
 
-Si se detiene la ejecución de esta manera, podemos continuar la descarga donde nos hayamos quedado en otro momento.
+Si se detiene la ejecución de esta manera, podemos continuar la descarga donde nos hayamos quedado, en otro momento.
