@@ -9,7 +9,7 @@ Wget, ya sea para Linux o para Windows (http://gnuwin32.sourceforge.net/packages
 
 Setup:
 Modificar las constantes:
-'STOPCRAWLERFILENAME' archivo en el sistema de archivos local que se buscará un archivo para detener el proceso.
+'STOPCRAWLERFILENAME' archivo en el sistema de archivos local que se buscará un archivo para detener el proceso
 'WGETPATH' el path al ejecutable de Wget
 'PREPURL' URL del Servlet 'DetalleCasillas' del PREP (Hay varios espejos del PREP)
 
