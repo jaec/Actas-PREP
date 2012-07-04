@@ -23,7 +23,6 @@ public class ObtenerActasPREP {
     public static final String STOPCRAWLERFILENAME = "/tmp/stopactas";
     public static final String WGETPATH = "/usr/local/bin/wget";
     private HashMap<String, String> sections = new HashMap<String, String>();
-    //private List<String> processedURLs = new ArrayList<String>();
     private FileWriter pURLsWriter = null;
     private final String lineseparator = System.getProperty("line.separator");
 
@@ -158,7 +157,7 @@ public class ObtenerActasPREP {
         }
     }
 
-    private void addprocessedURL(String url) {
+    private void addProcessedURL(String url) {
         if (url == null) {
             return;
         }
@@ -205,8 +204,7 @@ public class ObtenerActasPREP {
                     wget(url);
                 }
 
-                //this.processedURLs.add(res.getFromURL());
-                addprocessedURL(res.getFromURL());
+                addProcessedURL(res.getFromURL());
             } catch (InterruptedException ex) {
                 Logger.getLogger(ObtenerActasPREP.class.getName()).log(Level.SEVERE, ex.getMessage(), ex);
             } catch (ExecutionException ex) {
