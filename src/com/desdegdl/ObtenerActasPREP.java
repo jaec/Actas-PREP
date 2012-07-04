@@ -25,6 +25,7 @@ public class ObtenerActasPREP {
     private HashMap<String, String> sections = new HashMap<String, String>();
     //private List<String> processedURLs = new ArrayList<String>();
     private FileWriter pURLsWriter = null;
+    private final String lineseparator = System.getProperty("line.separator");
 
     public ObtenerActasPREP() {
         InputStream in = null;
@@ -124,11 +125,17 @@ public class ObtenerActasPREP {
         } else {
             try {
                 purlsFile.createNewFile();
-                pURLsWriter = new FileWriter(PURLSFILENAME, true);
             } catch (IOException exc) {
                 exc.printStackTrace(System.err);
                 System.exit(-1);
             }
+        }
+        
+        try {
+            pURLsWriter = new FileWriter(PURLSFILENAME, true);
+        } catch (IOException exc) {
+            exc.printStackTrace(System.err);
+            System.exit(-1);
         }
     }
 
@@ -152,8 +159,13 @@ public class ObtenerActasPREP {
     }
 
     private void addprocessedURL(String url) {
+        if (url == null) {
+            return;
+        }
+
         try {
-            this.pURLsWriter.write(url + System.clearProperty("line.separator"));
+            this.pURLsWriter.write(url + this.lineseparator);
+            this.pURLsWriter.flush();
         } catch (IOException ex) {
             Logger.getLogger(ObtenerActasPREP.class.getName()).log(Level.WARNING, ex.getMessage(), ex);
         }
