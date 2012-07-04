@@ -15,3 +15,6 @@ Modificar las constantes:
 
 Ejemplo de uso desde la consola:
 java -Xmx2048m -jar "/Users/xxx/NetBeansProjects/ObtenerActasPREP/dist/ObtenerActasPREP.jar" > /Users/xxx/urls.txt
+
+Para detener la ejecución:
+touch /tmp/stopactas
