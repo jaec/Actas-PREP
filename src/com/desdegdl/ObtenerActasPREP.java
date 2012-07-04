@@ -23,7 +23,8 @@ public class ObtenerActasPREP {
     public static final String STOPCRAWLERFILENAME = "/tmp/stopactas";
     public static final String WGETPATH = "/usr/local/bin/wget";
     private HashMap<String, String> sections = new HashMap<String, String>();
-    private List<String> processedURLs = new ArrayList<String>();
+    //private List<String> processedURLs = new ArrayList<String>();
+    private FileWriter pURLsWriter = null;
 
     public ObtenerActasPREP() {
         InputStream in = null;
@@ -120,6 +121,14 @@ public class ObtenerActasPREP {
                     }
                 }
             }
+        } else {
+            try {
+                purlsFile.createNewFile();
+                pURLsWriter = new FileWriter(PURLSFILENAME, true);
+            } catch (IOException exc) {
+                exc.printStackTrace(System.err);
+                System.exit(-1);
+            }
         }
     }
 
@@ -134,29 +143,19 @@ public class ObtenerActasPREP {
         }
     }
 
-    private void saveProgress() {
-        FileWriter writer = null;
-
+    private void shutdown() {
         try {
-            File purlsFile = new File(PURLSFILENAME);
-
-            if (!purlsFile.exists()) {
-                purlsFile.createNewFile();
-            }
-
-            writer = new FileWriter(PURLSFILENAME, true);
-            for (String str : this.processedURLs) {
-                writer.write(str + System.getProperty("line.separator"));
-            }
+            this.pURLsWriter.close();
         } catch (IOException ex) {
-            Logger.getLogger(ObtenerActasPREP.class.getName()).log(Level.SEVERE, ex.getMessage(), ex);
-        } finally {
-            if (writer != null) {
-                try {
-                    writer.close();
-                } catch (IOException ex) {
-                }
-            }
+            Logger.getLogger(ObtenerActasPREP.class.getName()).log(Level.WARNING, ex.getMessage(), ex);
+        }
+    }
+
+    private void addprocessedURL(String url) {
+        try {
+            this.pURLsWriter.write(url + System.clearProperty("line.separator"));
+        } catch (IOException ex) {
+            Logger.getLogger(ObtenerActasPREP.class.getName()).log(Level.WARNING, ex.getMessage(), ex);
         }
     }
 
@@ -181,7 +180,7 @@ public class ObtenerActasPREP {
                 if (file.exists()) {
                     file.delete();
                     f.cancel(true);
-                    saveProgress();
+                    shutdown();
                     break;
                 }
 
@@ -194,7 +193,8 @@ public class ObtenerActasPREP {
                     wget(url);
                 }
 
-                this.processedURLs.add(res.getFromURL());
+                //this.processedURLs.add(res.getFromURL());
+                addprocessedURL(res.getFromURL());
             } catch (InterruptedException ex) {
                 Logger.getLogger(ObtenerActasPREP.class.getName()).log(Level.SEVERE, ex.getMessage(), ex);
             } catch (ExecutionException ex) {
