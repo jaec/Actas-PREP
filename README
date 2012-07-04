@@ -9,7 +9,7 @@ Wget, ya sea para Linux, Mac o para Windows (http://gnuwin32.sourceforge.net/pac
 
 Setup:
 Modificar las constantes:
-'STOPCRAWLERFILENAME' archivo en el sistema de archivos local que se buscará un archivo para detener el proceso
+'STOPCRAWLERFILENAME' archivo en el sistema de archivos local que se buscará un archivo para detener el proceso (Por default: /tmp/stopactas )
 'WGETPATH' el path al ejecutable de Wget (Por default: /usr/local/bin/wget)
 Opcionalmente 'PREPURL' URL del Servlet 'DetalleCasillas' del PREP (Hay varios espejos del PREP, por default: http://prep2012.ife.org.mx/prep/DetalleCasillas )
 
