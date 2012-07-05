@@ -15,7 +15,7 @@ import org.apache.commons.lang3.StringUtils;
  */
 public class ObtenerActasPREP {
 
-    public final static int NUMBER_OF_CONCURRENT_THREADS = 2;
+    public final static int NUMBER_OF_CONCURRENT_THREADS = 3;
     public static final String PREPURL = "http://prep2012.ife.org.mx/prep/DetalleCasillas";
     public static final String ACTASURL = "https://prep2012.ife.org.mx/actas/";
     public static final String ACTASEXTENSION = ".jpg";
@@ -191,7 +191,6 @@ public class ObtenerActasPREP {
                 if (file.exists()) {
                     file.delete();
                     f.cancel(true);
-                    shutdown();
                     break;
                 }
 
@@ -215,6 +214,7 @@ public class ObtenerActasPREP {
         }
 
         executorService.shutdown();
+        shutdown();
     }
 
     class CrawlerResult {
