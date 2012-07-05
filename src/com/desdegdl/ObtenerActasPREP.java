@@ -139,6 +139,10 @@ public class ObtenerActasPREP {
     }
 
     private void wget(String url) {
+        if (url == null) {
+            return;
+        }
+        
         try {
             Process process = new ProcessBuilder(new String[]{WGETPATH, "-q", "-U MSIE 6.0", url}).start();
             process.waitFor();
